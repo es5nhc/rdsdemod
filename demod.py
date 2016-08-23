@@ -65,7 +65,7 @@ audioContent=array.array("h",audioRecordingFile.readframes(-1))[95000:] #We'll s
 audioRecordingFile.close()
 
 contentSize=len(audioContent)
-maxPacketsCount=int((len(audioContent)/95000)*(1187.5/104))
+maxPacketsCount=int((len(audioContent)/sampleRate/2)*(1187.5/104))
 
 #Audio components
 audioQ=audioContent[::2]

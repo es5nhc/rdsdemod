@@ -1,0 +1,35 @@
+Long story short, this is a set of Python scripts to capture FM RDS packets for a specific time and output them to an external text file, in order for them to be able to be read using external applications, such as RDS Spy. This is a rough implementation, mostly for internal use in my DX hobby, but I am putting this out in hope some may find it useful and maybe even build on it.
+
+REQUIREMENTS
+- GNU Radio
+- OsmoSDR Gnuradio blocks
+- numpy
+- bitarray
+- Python, Python 3(with Python 3 versions of numpy and bitarray) recommended for demod.py
+
+NOTES:
+
+Reception part is done by receive.py using GnuRadio. Received waveform will be saved to file "waveform.wav"
+
+Final processing is done by demod.py - this will work through waveform.wav file, and extract packets as hex so that you could feed them to external applications such as RDS Spy. This file has been written so that it can be run in Python 2 as well as in Python 3. I've found that at least on my machine, Python 3 works slightly faster, so you may use Python 3 to run demod.py. Remember to install numpy and bitarray for Python 3 separately in such case. The file will be saved to the same directory. Example line from the output:
+22E1 2531 494E 4720
+(Note: This station is Vikerraadio in Estonia, as can be seen from PI code 22E1)
+
+I've included a script onefreq.sh as an example - this also serves as an example of usage. Please cd into the script folder before running the script.
+
+If you wish, you can bypass Gnuradio and implement your own way to get the content for waveform.wav. I've included the Gnu Radio Companion file to show the reception process. I'd recommend that in such case you save the waveform.wav in a sample rate that is a multiple of 1187.5(RDS symbol rate), in default 47500 - meaning each symbol lasts exactly 40 samples. Samples should be 16 bit signed PCM.
+
+Configuration options in demod.py:
+verbose: Give extra information about the decode process.
+sampleRate: Sample rate of waveform.py - read my note about it being a multiple of 1187.5 for simplicity.
+rawOutput: Instead of some generic reception information, input the number of decoded A blocks and amount of incorrectly decoded blocks in percentage. Good for plugging the output into external software - in this case of course please ensure that verbose is set to False.
+
+This has been developed on a Linux machine, hence it focuses on Linux at least as far as reception is concerned.
+
+In conclusion, much of it is left here as is, but perhaps you might find some use for it.
+
+CONTACT:
+
+Tarmo Tanilsoo
+e-mail: tarmotanilsoo@gmail.com
+Twitter: @es5nhc
