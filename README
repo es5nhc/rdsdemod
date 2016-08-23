@@ -19,7 +19,7 @@ I've included a script onefreq.sh as an example - this also serves as an example
 
 If you wish, you can bypass Gnuradio and implement your own way to get the content for waveform.wav. I've included the Gnu Radio Companion file to show the reception process. I'd recommend that in such case you save the waveform.wav in a sample rate that is a multiple of 1187.5(RDS symbol rate), in default 47500 - meaning each symbol lasts exactly 40 samples. Samples should be 16 bit signed PCM.
 
-Configuration options in demod.py:
+Configuration variables inside demod.py:
 verbose: Give extra information about the decode process.
 sampleRate: Sample rate of waveform.py - read my note about it being a multiple of 1187.5 for simplicity.
 rawOutput: Instead of some generic reception information, input the number of decoded A blocks and amount of incorrectly decoded blocks in percentage. Good for plugging the output into external software - in this case of course please ensure that verbose is set to False.
