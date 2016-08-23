@@ -3,8 +3,8 @@ Long story short, this is a set of Python scripts to capture FM RDS packets for 
 REQUIREMENTS
 - GNU Radio
 - OsmoSDR Gnuradio blocks
-- numpy
-- bitarray
+- numpy Python module
+- bitarray Python module
 - Python, Python 3(with Python 3 versions of numpy and bitarray) recommended for demod.py
 
 NOTES:
