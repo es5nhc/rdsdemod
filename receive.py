@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Mon Aug 22 20:17:02 2016
+# Generated: Thu Aug 25 22:40:16 2016
 ##################################################
 
 from gnuradio import analog
@@ -71,7 +71,7 @@ class top_block(gr.top_block):
         self.blocks_wavfile_sink_0 = blocks.wavfile_sink("waveform.wav", 2, samp_rate, 16)
         self.blocks_multiply_xx_1 = blocks.multiply_vff(1)
         self.blocks_multiply_xx_0 = blocks.multiply_vff(1)
-        self.blocks_head_0 = blocks.head(gr.sizeof_gr_complex*1, int(samp_rate*(duration+1)))
+        self.blocks_head_0 = blocks.head(gr.sizeof_gr_complex*1, int(samp_rate*duration))
         self.blocks_float_to_complex_0 = blocks.float_to_complex(1)
         self.blocks_complex_to_float_0 = blocks.complex_to_float(1)
         self.analog_wfm_rcv_0 = analog.wfm_rcv(
@@ -105,7 +105,7 @@ class top_block(gr.top_block):
 
     def set_duration(self, duration):
         self.duration = duration
-        self.blocks_head_0.set_length(int(self.samp_rate*(self.duration+1)))
+        self.blocks_head_0.set_length(int(self.samp_rate*self.duration))
 
     def get_gain(self):
         return self.gain
@@ -168,7 +168,7 @@ class top_block(gr.top_block):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.blocks_head_0.set_length(int(self.samp_rate*(self.duration+1)))
+        self.blocks_head_0.set_length(int(self.samp_rate*self.duration))
 
 
 def argument_parser():

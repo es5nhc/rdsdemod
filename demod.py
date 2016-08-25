@@ -61,7 +61,7 @@ phaseDifferenceMaximum=pi+phaseDifferenceLimitOffset
 
 if verbose: print("Loading the data file...")
 audioRecordingFile=wave.open("waveform.wav")
-audioContent=array.array("h",audioRecordingFile.readframes(-1))[95000:] #We'll skip the first second, as the audio fades in.
+audioContent=array.array("h",audioRecordingFile.readframes(-1))
 audioRecordingFile.close()
 
 contentSize=len(audioContent)

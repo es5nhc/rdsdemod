@@ -462,7 +462,7 @@
     </param>
     <param>
       <key>num_items</key>
-      <value>int(samp_rate*(duration+1))</value>
+      <value>int(samp_rate*duration)</value>
     </param>
     <param>
       <key>type</key>
